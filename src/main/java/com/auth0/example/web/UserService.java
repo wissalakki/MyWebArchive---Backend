@@ -2,7 +2,7 @@ package com.auth0.example.web;
 
 import java.util.List;
 
-import com.auth0.example.model.User;
+import com.auth0.example.model.Users.User;
 
 import org.springframework.stereotype.Service;
 
