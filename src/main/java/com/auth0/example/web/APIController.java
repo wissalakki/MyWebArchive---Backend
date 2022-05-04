@@ -1,7 +1,5 @@
 package com.auth0.example.web;
 
-import java.io.Serializable;
-
 import com.auth0.example.model.Message;
 
 import org.springframework.http.MediaType;
@@ -20,7 +18,7 @@ import com.auth0.example.security.Utils;
  *      protected.
  */
 @RestController
-@RequestMapping(path = "api", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(path = "api/general", produces = MediaType.APPLICATION_JSON_VALUE)
 // For simplicity of this sample, allow all origins. Real applications should
 // configure CORS for their use case.
 @CrossOrigin(origins = "*")
@@ -49,13 +47,5 @@ public class APIController {
     public Message privateScopedEndpoint() {
         return new Message(
                 "All good. You can see this because you are Authenticated with a Token granted the 'read:messages' scope");
-    }
-}
-
-class Response implements Serializable {
-    private String email;
-
-    public String getEmail() {
-        return email;
     }
 }

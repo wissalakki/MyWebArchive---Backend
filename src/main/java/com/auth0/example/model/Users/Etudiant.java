@@ -24,6 +24,25 @@ public class Etudiant extends User {
 		this.niveauEtudes = niveauEtudes;
 	}
 
+	public String getMle() {
+		return mle;
+	}
+
+	// TODO: needs to affect db
+	public void setMle(String mle) {
+		this.mle = mle;
+	}
+
+	public NiveauEtudes getNiveauEtudes() {
+		return niveauEtudes;
+	}
+
+	// TODO: needs to affect db
+	public void setNiveauEtudes(NiveauEtudes niveauEtudes) {
+		this.niveauEtudes = niveauEtudes;
+	}
+
+	// TODO: needs to affect db
 	@Override
 	public void addReclamations(Collection<Reclamation> r) {
 		super.addReclamations(r);

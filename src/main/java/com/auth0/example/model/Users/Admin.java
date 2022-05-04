@@ -11,12 +11,14 @@ public class Admin extends User {
 		super(uid, email, displayName, imageUrl, reclamations);
 	}
 
+	// TODO: needs to affect db
 	@Override
 	public void addReclamations(Collection<Reclamation> r) {
 		super.addReclamations(r);
 		r.stream().forEach((reclamation) -> reclamation.setAdmin(this));
 	}
 
+	// TODO: needs to affect db
 	public boolean reglerReclamation(Reclamation r) {
 		if (!this.getReclamations().contains(r) || r.getStatusReclamation().equals(StatusReclamation.REGLEE)) {
 			return false;

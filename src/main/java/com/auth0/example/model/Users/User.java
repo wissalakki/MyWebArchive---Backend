@@ -26,6 +26,7 @@ public class User {
 		return uid;
 	}
 
+	// TODO: needs to affect db
 	public void setUid(String uid) {
 		this.uid = uid;
 	}
@@ -42,6 +43,7 @@ public class User {
 		return displayName;
 	}
 
+	// TODO: needs to affect db
 	public void setDisplayName(String displayName) {
 		this.displayName = displayName;
 	}
@@ -58,20 +60,15 @@ public class User {
 		return reclamations;
 	}
 
-	/**
-	 * get property from xml databse
-	 */
 	public static PermissionLevel getDBPermissionLevel(String uid) {
 		return null;
 	}
 
-	/**
-	 * get property from xml database
-	 */
 	public static Boolean getDBIsTeacher(String uid) {
 		return null;
 	}
 
+	// TODO: needs to affect db
 	public void addReclamations(Collection<Reclamation> r) {
 		r.stream().forEach(reclamations::add);
 	}
