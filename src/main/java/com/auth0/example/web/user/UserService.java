@@ -1,4 +1,4 @@
-package com.auth0.example.web;
+package com.auth0.example.web.user;
 
 import java.util.List;
 

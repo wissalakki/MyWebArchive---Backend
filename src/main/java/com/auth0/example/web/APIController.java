@@ -2,6 +2,7 @@ package com.auth0.example.web;
 
 import com.auth0.example.model.Message;
 
+import com.auth0.example.web.user.UserService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
