@@ -14,15 +14,18 @@ import com.auth0.example.model.Projects.Project;
 @RequestMapping(path = "api/projects", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ProjectController {
 
-    private ProjectService projectService;
+//    private ProjectService projectService;
+//    
+//    @GetMapping(value="/getAll")
+//    public List<Project> getAllProjects(){
+//    	return projectService.getAllProjects();
+//    }
+//    
+//    @GetMapping(value="/getuser/{keyWords}")
+//    public Project[] getProjectByKeyWords(@RequestParam List<String> keyWords){
+//    	return projectService.getProjectByKeyWords(keyWords);
+//    }
     
-    @GetMapping(value="/getAll")
-    public List<Project> getAllProjects(){
-    	return projectService.getAllProjects();
-    }
-    
-    @GetMapping(value="/getbykeywords/{keyWords}")
-    public Project[] getProjectByKeyWords( @RequestParam List<String> keyWords){{
-    	
-    }
+//    @GetMapping(value="/getuser/{name}&{level}")
+//    public 
 }

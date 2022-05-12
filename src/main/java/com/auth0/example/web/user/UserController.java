@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -21,9 +20,6 @@ import com.auth0.example.security.Utils;
 import com.auth0.example.model.Users.User;
 
 import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.http.HttpStatus;
 /**
@@ -84,12 +80,16 @@ public class UserController {
         userService.addUser(user);
     }
 	
-	/*
-	@PutMapping(value="/updateuser/{uid}")
-	public @ResponseBody void updateUser(@RequestParam String uid) {
-		userService.updateUser(uid);
+	
+	@PutMapping(value="/updateuser/{email}")
+	public void updateUserEmail(@RequestBody User user, @RequestParam String email ) {
+		userService.updateUserEmail(user, email);
 	}
-	*/
+	
+	@PutMapping(value="/updateuser/{imageUrl}")
+	public void updateUserImage(@RequestBody User user, @RequestParam String imageUrl) {
+		userService.updateUserEmail(user, imageUrl);
+	}
 	
 	@DeleteMapping(value="/deleteuser/{uid}")
 	public @ResponseBody void deleteUser(@RequestBody String uid) {
