@@ -1,7 +1,8 @@
-package com.auth0.example.web.Reclamation;
+package com.auth0.example.web;
 
 import com.auth0.example.model.Enums.StatusReclamation;
-import com.auth0.example.model.Reclamation.Reclamation;
+import com.auth0.example.model.Reclamation;
+import com.auth0.example.model.Reclamation;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
