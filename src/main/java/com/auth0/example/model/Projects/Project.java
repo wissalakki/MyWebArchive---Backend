@@ -36,4 +36,68 @@ public class Project {
 	public void addGroupe(Groupe groupe) {
 		groupes.add(groupe);
 	}
+
+	public String getTitre() {
+		return titre;
+	}
+
+	public void setTitre(String titre) {
+		this.titre = titre;
+	}
+
+	public int getNote() {
+		return note;
+	}
+
+	public void setNote(int note) {
+		this.note = note;
+	}
+
+	public List<String> getMotsCles() {
+		return motsCles;
+	}
+
+	public void setMotsCles(List<String> motsCles) {
+		this.motsCles = motsCles;
+	}
+
+	public List<Version> getVersions() {
+		return versions;
+	}
+
+	public void setVersions(List<Version> versions) {
+		this.versions = versions;
+	}
+
+	public List<Groupe> getGroupes() {
+		return groupes;
+	}
+
+	public void setGroupes(List<Groupe> groupes) {
+		this.groupes = groupes;
+	}
+
+	public Prof getSupervisor() {
+		return supervisor;
+	}
+
+	public void setSupervisor(Prof supervisor) {
+		this.supervisor = supervisor;
+	}
+
+	public StatusProjet getProjectStatus() {
+		return projectStatus;
+	}
+
+	public void setProjectStatus(StatusProjet projectStatus) {
+		this.projectStatus = projectStatus;
+	}
+
+	public TypeProjet getProjectType() {
+		return projectType;
+	}
+
+	public void setProjectType(TypeProjet projectType) {
+		this.projectType = projectType;
+	}
 }
