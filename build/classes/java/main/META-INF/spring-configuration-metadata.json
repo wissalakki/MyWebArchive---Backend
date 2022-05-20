@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "file",
+      "type": "com.auth0.example.web.Version.FileStorageProperties",
+      "sourceType": "com.auth0.example.web.Version.FileStorageProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "file.upload-dir",
+      "type": "java.lang.String",
+      "sourceType": "com.auth0.example.web.Version.FileStorageProperties"
+    }
+  ],
+  "hints": []
+}

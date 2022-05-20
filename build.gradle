@@ -20,7 +20,7 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+   // implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
 
     testImplementation 'org.springframework.security:spring-security-test'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -31,5 +31,5 @@ dependencies {
 	
 	testCompileOnly 'org.projectlombok:lombok:1.18.24'
 	testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
-
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
 }

@@ -1,5 +1,5 @@
 package com.auth0.example.model;
 
-public class Comment {
+public class Comments {
 
 }

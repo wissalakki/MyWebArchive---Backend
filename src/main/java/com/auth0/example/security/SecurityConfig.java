@@ -1,4 +1,4 @@
-package com.auth0.example.security;
+/*package com.auth0.example.security;
 
 
 import org.springframework.beans.factory.annotation.Value;
@@ -12,7 +12,7 @@ import org.springframework.security.oauth2.jwt.*;
 
 /**
  * Configures our application with Spring Security to restrict access to our API endpoints.
- */
+
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -28,9 +28,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         This is where we configure the security required for our endpoints and setup our app to serve as
         an OAuth2 Resource Server, using JWT validation.
         */
-        http.authorizeRequests()
+      /*  http.cors().and().csrf().disable();
+       http.authorizeRequests()
                 .mvcMatchers("/api/public").permitAll()
+               .mvcMatchers("/upload").permitAll()
+               .mvcMatchers("/h").permitAll()
                 .mvcMatchers("/api/private").authenticated()
+
+                .mvcMatchers("").authenticated()  //private endpoints where the user should be authenticated to access
                 .mvcMatchers("/api/private-scoped").hasAuthority("SCOPE_read:messages")
                 .and().cors()
                 .and().oauth2ResourceServer().jwt();
@@ -43,7 +48,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         indeed intended for our app. Adding our own validator is easy to do:
         */
 
-        NimbusJwtDecoder jwtDecoder = (NimbusJwtDecoder)
+       /* NimbusJwtDecoder jwtDecoder = (NimbusJwtDecoder)
                 JwtDecoders.fromOidcIssuerLocation(issuer);
 
         OAuth2TokenValidator<Jwt> audienceValidator = new AudienceValidator(audience);
@@ -54,4 +59,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         return jwtDecoder;
     }
-}
+} */

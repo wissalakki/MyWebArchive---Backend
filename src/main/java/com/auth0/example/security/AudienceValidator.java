@@ -1,4 +1,4 @@
-package com.auth0.example.security;
+/*package com.auth0.example.security;
 
 import org.springframework.security.oauth2.core.OAuth2Error;
 import org.springframework.security.oauth2.core.OAuth2TokenValidator;
@@ -8,7 +8,7 @@ import org.springframework.security.oauth2.jwt.Jwt;
 /**
  * Validates that the JWT token contains the intended audience in its claims.
  */
-class AudienceValidator implements OAuth2TokenValidator<Jwt> {
+/*class AudienceValidator implements OAuth2TokenValidator<Jwt> {
     private final String audience;
 
     AudienceValidator(String audience) {
@@ -24,4 +24,4 @@ class AudienceValidator implements OAuth2TokenValidator<Jwt> {
 
         return OAuth2TokenValidatorResult.failure(error);
     }
-}
+}*/

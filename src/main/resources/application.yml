@@ -2,9 +2,15 @@ debug: true
 server:
   port: 3010
 
+
+
 auth0:
   # Replace with the API Identifier for your Auth0 API.
   audience: https://smartassistant.com/
+
+
+
+
 
 # The following is standard Spring Security OAuth2 configuration.
 spring:
@@ -15,4 +21,15 @@ spring:
           # Replace with the domain of your Auth0 tenant.
           # Note the trailing slash is important!
           issuer-uri: https://dev--r9nce6d.us.auth0.com/
-          
+
+
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 200MB
+      max-request-size: 215MB
+
+
+file:
+  upload-dir: /Users/uploads
