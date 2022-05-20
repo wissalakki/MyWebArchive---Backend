@@ -32,9 +32,8 @@ public class ProjectController {
     }
 
     @GetMapping(value="/projects/{projectid}")
-    public Project getProject(@RequestHeader String authHeader,@RequestParam("projectid") Long projectId){
-        String user =this.utils.getUser(authHeader);
-        return projectService.getProjectbyId(authHeader,projectId);
+    public Project getProject(@RequestParam("projectid") Long projectId){
+        return projectService.getProjectbyId(projectId);
     }
 
     @GetMapping("/teachers/{id}/projects")
@@ -43,18 +42,18 @@ public class ProjectController {
     }
 
     @GetMapping("/students/{id}/projects")
-    public List<Project> getAllProjectsByStudent(@PathVariable Long id){
+    public List<Project> getAllProjectsByStudent(@PathVariable String id){
         return projectService.getProjectByStudent(id);
     }
 
 
     @GetMapping("/projects/{keywords}")
-    public List<Project> getProjectsByKeyword(@PathVariable List<String> keywords){
+    public List<Project> getProjectsByKeyword(@PathVariable String keywords){
          return projectService.getProjectByKeyWords(keywords);
     }
 
     @GetMapping("/projects/{type}")
-    public List<Project> getProjectsByType(@PathVariable TypeProjet type){
+    public List<Project> getProjectsByType(@RequestParam TypeProjet type){
         return projectService.getProjectByProjectType(type);
     }
 

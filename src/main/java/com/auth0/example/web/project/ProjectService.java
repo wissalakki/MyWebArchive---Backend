@@ -32,7 +32,7 @@ public class ProjectService {
 
     public List<Project> getAllProjects(){
 
-        String url = "http://localhost:3000/projects";
+        String url = "http://localhost:3000/api/projects/";
 
 
 
@@ -44,8 +44,8 @@ public class ProjectService {
         return Arrays.asList(projects);
     }
 
-    public Project getProjectbyId(String user,Long projectId) {
-        String url = "http://localhost:3000/nodeServer/projects/{projectId}&{user}";
+    public Project getProjectbyId(Long projectId) {
+        String url = "http://localhost:3000/nodeServer/projects/{projectId}";
         ResponseEntity<Project> response = restTemplate.getForEntity(url,Project.class, projectId);
         Project project = response.getBody();
         return project;
@@ -71,8 +71,8 @@ public class ProjectService {
 
 
     //how to get one keyword at a time
-    public List<Project> getProjectByKeyWords( List<String> keyWords){
-        String url="http://localhost:8000/api/projects/getuser/{keyWords}";
+    public List<Project> getProjectByKeyWords( String keyWords){
+        String url="http://localhost:3000/api/projects/{keyWords}";
         ResponseEntity<Project[]> response = restTemplate.getForEntity(url, Project[].class, keyWords);
 
         Project[] project = response.getBody();
@@ -81,7 +81,7 @@ public class ProjectService {
     }
 
     public List<Project> getProjectByProjectType( TypeProjet type){
-        String url="http://localhost:8000/api/projects/getuser/{type}";
+        String url="http://localhost:3000/api/projects/{type}";
         ResponseEntity<Project[]> response = restTemplate.getForEntity(url, Project[].class,type);
 
         Project[] project = response.getBody();
@@ -89,8 +89,8 @@ public class ProjectService {
         return Arrays.asList(project);
     }
 
-    public List<Project> getProjectByStudent(@RequestParam("id") Long id ){
-        String url="http://localhost:8000/api/projects/getuser/{id}";
+    public List<Project> getProjectByStudent(@RequestParam("id") String id ){
+        String url="http://localhost:3000/api/projects/getuser/{id}";
         ResponseEntity<Project[]> response = restTemplate.getForEntity(url, Project[].class,id);
 
         Project[] project = response.getBody();

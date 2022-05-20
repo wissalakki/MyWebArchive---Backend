@@ -1,5 +1,7 @@
 package com.auth0.example.model;
 
-public class Comments {
+import java.util.ArrayList;
 
+public class Comments{
+    public ArrayList<Comment> comment;
 }

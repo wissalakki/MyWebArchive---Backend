@@ -1,5 +1,6 @@
 package com.auth0.example.model.Projects;
 
+import com.auth0.example.model.Comments;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,12 +10,13 @@ import lombok.NonNull;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Version {
-	@NonNull
-	private int number;
-	@NonNull
-	private String commentaire;
-	@NonNull
-	private String contenu;
-	@NonNull
-	private Long projectid;
+	public String uid;
+	public String publisher;
+	public String numero;
+	public String description;
+	public Comments comments;
+	public String contenu;
+
+
+
 }
