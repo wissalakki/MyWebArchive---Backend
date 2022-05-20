@@ -3,6 +3,7 @@ package com.auth0.example.web.project;
 
 
 import com.auth0.example.model.Enums.StatusProjet;
+import com.auth0.example.model.Enums.TypeProjet;
 import com.auth0.example.model.Projects.Project;
 import com.auth0.example.model.Users.Prof;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -33,10 +34,7 @@ public class ProjectService {
 
         String url = "http://localhost:3000/projects";
 
-        HttpHeaders headers = new HttpHeaders();
 
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
 
         ResponseEntity<Project[]> response =
                 restTemplate.getForEntity(
@@ -46,7 +44,12 @@ public class ProjectService {
         return Arrays.asList(projects);
     }
 
-
+    public Project getProjectbyId(String user,Long projectId) {
+        String url = "http://localhost:3000/nodeServer/projects/{projectId}&{user}";
+        ResponseEntity<Project> response = restTemplate.getForEntity(url,Project.class, projectId);
+        Project project = response.getBody();
+        return project;
+    }
 
     public List<Project> getAllProjectsTeacher(Long teacherId){
 
@@ -70,16 +73,16 @@ public class ProjectService {
     //how to get one keyword at a time
     public List<Project> getProjectByKeyWords( List<String> keyWords){
         String url="http://localhost:8000/api/projects/getuser/{keyWords}";
-        ResponseEntity<Project[]> response = restTemplate.getForEntity(url, Project[].class);
+        ResponseEntity<Project[]> response = restTemplate.getForEntity(url, Project[].class, keyWords);
 
         Project[] project = response.getBody();
 
         return Arrays.asList(project);
     }
 
-    public List<Project> getProjectByProjectType(@RequestParam("type") String type){
+    public List<Project> getProjectByProjectType( TypeProjet type){
         String url="http://localhost:8000/api/projects/getuser/{type}";
-        ResponseEntity<Project[]> response = restTemplate.getForEntity(url, Project[].class);
+        ResponseEntity<Project[]> response = restTemplate.getForEntity(url, Project[].class,type);
 
         Project[] project = response.getBody();
 
@@ -88,7 +91,7 @@ public class ProjectService {
 
     public List<Project> getProjectByStudent(@RequestParam("id") Long id ){
         String url="http://localhost:8000/api/projects/getuser/{id}";
-        ResponseEntity<Project[]> response = restTemplate.getForEntity(url, Project[].class);
+        ResponseEntity<Project[]> response = restTemplate.getForEntity(url, Project[].class,id);
 
         Project[] project = response.getBody();
 
@@ -109,32 +112,27 @@ public class ProjectService {
 //    }
 
     //its a put method
-    public void changeStatus(@RequestParam("status") StatusProjet status, @RequestBody Project project){
-        String url = "http://localhost:3000/projects/changestatus/{status}&{project}";
-        HttpEntity<Project> entity = new HttpEntity<>(project);
-        this.restTemplate.put(url, entity, status); //is it correct?
-    }
+  //  public void changeStatus(@RequestParam("status") StatusProjet status, @RequestParam Long projectid){
+    //    String url = "http://localhost:3000/projects/changestatus/{status}&{project}";
+      //  Project p = this.getProjectbyId(projectid);
+       // HttpEntity<Project> entity = new HttpEntity<>(p);
+        //this.restTemplate.put(url, entity, status); //is it correct?
+    //}
 
-    //it's a put method
-    //is it correct
-    public void updateVersion(String title, @RequestBody Project project){
-        String url = "http://localhost:8080/api/projects/updateversion/{title}";
-        HttpEntity<Project> entity = new HttpEntity<>(project);
-        this.restTemplate.put(url, entity, title); //is it correct?
 
-    }
 
-    public void rateProject(int note, @RequestBody Project project){
-        String url ="http://localhost:3000/projects/rateProject/{note}";
-        HttpEntity<Project> entity =new HttpEntity<>(project);
-        this.restTemplate.put(url,entity, note);
+    //public void rateProject(int note, @RequestParam Long projectid){
+      //  String url ="http://localhost:3000/projects/rateProject/{projectid}/{note}";
+        //Project p = this.getProjectbyId(projectid);
+        //HttpEntity<Project> entity =new HttpEntity<>(p);
+        //this.restTemplate.put(url,entity, note);
+    //}
 
-    }
-
-    public void addKeywordtoProject(List<String> keywords, @RequestBody Project project){
-        String url="http://localhost:3000/projects/addKeyword/{keywords}";
-        HttpEntity<Project> entity = new HttpEntity<>(project);
-        this.restTemplate.put(url,entity,keywords);
-    }
+   // public void addKeywordtoProject(List<String> keywords, @RequestParam Long projectid){
+     //   String url="http://localhost:3000/projects/{projectid}/addKeyword/{keywords}";
+       // Project p = this.getProjectbyId(projectid);
+        //HttpEntity<Project> entity = new HttpEntity<>(p);
+        //this.restTemplate.put(url,entity,keywords);
+   // }
 
 }

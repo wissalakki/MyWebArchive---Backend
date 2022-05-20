@@ -15,6 +15,16 @@ public class UserService {
 
 	private final RestTemplate restTemplate = new RestTemplate();
 
+	public String getUserType(String user){
+		String url = "http://localhost:3000/api/users/gettype";
+		ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+
+		String type = response.getBody();
+
+		return type;
+	}
+
+
 	public List<User> getAllUsers() {
 		String url = "http://localhost:3000/users/getAll";
 		ResponseEntity<User[]> response = restTemplate.getForEntity(url, User[].class);
